@@ -53,6 +53,6 @@ function fish_prompt
 end
 
 function docker-clean
-	docker rm -f (docker ps -a -q)
-	docker rmi (docker images -q)
+	docker rm (docker ps -a -q)
+	docker rmi (docker images -q --filter "dangling=true")
 end
