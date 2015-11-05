@@ -31,8 +31,6 @@ set fish_pager_color_prefix cyan
 set fish_pager_color_progress cyan
 
 function fish_prompt
-    set last_status $status
-    
     set user (whoami)
 
     set_color magenta
@@ -48,18 +46,13 @@ function fish_prompt
     set_color $fish_color_cwd
     printf '%s' (echo $PWD | sed -e "s|^$HOME|~|" -e 's|^/private||')
     set_color normal
-
-    if test $last_status -ne 0
-        set_color white -o
-        printf '[%d] ' $last_status
-        set_color normal
-    end
+    
     printf ' $ '
 
     set_color normal
 end
 
 function docker-clean
-	docker rmi (docker images --filter dangling=true --quiet)
-	docker rm (docker ps -a | grep Exited | cut -d" " -f1)
+	docker rm -f (docker ps -a -q)
+	docker rmi (docker images -q)
 end
