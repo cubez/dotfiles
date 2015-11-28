@@ -35,7 +35,8 @@ echo "";
 echo "################################################################"
 echo "Adding repositories"
 echo "################################################################"
-sudo add-apt-repository ppa:moka/stable
+sudo add-apt-repository -y ppa:moka/stable
+sudo add-apt-repository -y ppa:no1wantdthisname/ppa
 
 echo "################################################################"
 echo "First update and upgrade"
