@@ -28,75 +28,122 @@ ask() {
 
 dir=`pwd`
 
+echo "################################################################"
+echo "Installation Script"
+echo "################################################################"
+echo "";
+echo "################################################################"
+echo "Adding repositories"
+echo "################################################################"
+sudo add-apt-repository ppa:moka/stable
 
-if ask "Install symlink for .zshrc?" Y; then
-  ln -sf ${dir}/.zshrc ${HOME}/.zshrc
+echo "################################################################"
+echo "First update and upgrade"
+echo "################################################################"
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -f -y install
+sudo apt-get -y upgrade
+
+echo "################################################################"
+echo "Install core applications"
+echo "################################################################"
+sudo apt-get install -y i3
+sudo apt-get install -y i3blocks
+sudo apt-get install -y git
+sudo apt-get install -y vim
+sudo apt-get install -y rofi
+sudo apt-get install -y compton
+sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
+
+if ask "Install theme, icons and fonts?" Y; then
+echo "################################################################"
+echo "Install themes"
+echo "################################################################"
+
+echo "Arc GTK Theme"
+wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
+sudo apt-key add - < Release.key
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.10/ /' >> /etc/apt/sources.list.d/arc-theme.list"
+sudo apt-get update
+sudo apt-get install -y arc-theme
+
+echo "Moka Icon Theme"
+sudo apt-get install -y moka-icon-theme
 fi
 
-if ask "Install symlink for .tmux.conf?" Y; then
-  ln -sf ${dir}/.tmux.conf ${HOME}/.tmux.conf
-fi
+echo "################################################################"
+echo "Configure"
+echo "################################################################"
+git config --global user.name "cubez"
+git config --global user.email "cubez@cubez.nl"
 
-if ask "Install symlink for .zprofile?" Y; then
-  ln -sf ${dir}/.zprofile ${HOME}/.zprofile
-fi
+echo "################################################################"
+echo "Setup symlinks for config files"
+echo "################################################################"
 
-if ask "Install symlink for .yaourtrc?" Y; then
-  ln -sf ${dir}/.yaourtrc ${HOME}/.yaourtrc
-fi
-
-if ask "Install symlink for .Xresources?" Y; then
-  ln -sf ${dir}/.Xresources ${HOME}/.Xresources
-fi
-
-if ask "Install symlink for .xinitrc?" Y; then
-  ln -sf ${dir}/.xinitrc ${HOME}/.xinitrc
-fi
-
-if ask "Install symlink for .gtkrc-2.0?" Y; then
-  ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
-fi
-
-if ask "Install symlink for .i3blocks.conf?" Y; then
-  ln -sf ${dir}/.i3blocks.conf ${HOME}/.i3blocks.conf
-fi
-
-if ask "Install symlink for .scripts?" Y; then
-  ln -sfn ${dir}/.scripts ${HOME}/.scripts
+if ask "Install symlink for .config/fish?" Y; then
+  ln -sf ${dir}/.config/fish ${HOME}/.config/fish
 fi
 
 if ask "Install symlink for .i3?" Y; then
   ln -sfn ${dir}/.i3 ${HOME}/.i3
 fi
 
-if ask "Install symlink for .config/nvim?" Y; then
-  ln -sfn ${dir}/.config/nvim ${HOME}/.config/nvim
+if ask "Install symlink for .i3blocks.conf?" Y; then
+  ln -sf ${dir}/.i3blocks.conf ${HOME}/.i3blocks.conf
 fi
 
-if ask "Install symlink for .config/base16-shell?" Y; then
-  ln -sfn ${dir}/.config/base16-shell ${HOME}/.config/base16-shell
-fi
-
-if ask "Install symlink for .config/dunst?" Y; then
-  ln -sfn ${dir}/.config/dunst ${HOME}/.config/dunst
-fi
-
-if ask "Install symlink for .config/gtk-2.0?" Y; then
-  ln -sfn ${dir}/.config/gtk-2.0 ${HOME}/.config/gtk-2.0
+if ask "Install symlink for .gtkrc-2.0?" Y; then
+  ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 fi
 
 if ask "Install symlink for .config/gtk-3.0?" Y; then
   ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
 fi
 
-if ask "Install symlink for .config/pulse?" Y; then
-  ln -sfn ${dir}/.config/pulse ${HOME}/.config/pulse
+if ask "Install symlink for .fonts?" Y; then
+  ln -sfn ${dir}/.fonts ${HOME}/.fonts
 fi
 
-if ask "Install symlink for .config/imgur-screenshot?" Y; then
-  ln -sfn ${dir}/.config/imgur-screenshot ${HOME}/.config/imgur-screenshot
+if ask "Install symlink for .config/compton.conf?" Y; then
+  ln -sfn ${dir}/.config/compton.conf ${HOME}/.config/compton.conf
 fi
 
-if ask "Install symlink for .config/pulseaudio-ctl?" Y; then
-  ln -sfn ${dir}/.config/pulseaudio-ctl ${HOME}/.config/pulseaudio-ctl
+echo "################################################################"
+echo "Install extra applications"
+echo "################################################################"
+
+if ask "Install Chromium?" Y; then
+  sudo apt-get install -y chromium-browser
+fi
+
+if ask "Install Spotify?" Y; then
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install -y spotify-client
+fi
+
+if ask "Install Dropbox?" Y; then
+wget https://linux.dropbox.com/packages/ubuntu/dropbox_2015.10.28_amd64.deb
+$ sudo dpkg -i dropbox_2015.10.28_amd64.deb
+fi
+
+echo "################################################################"
+echo "Extra"
+echo "################################################################"
+
+if ask "Install fun terminal stuff?" Y; then
+cd ~/Downloads
+git clone https://github.com/livibetter/pipes.sh.git
+cd pipes.sh
+sudo make install
+cd ..
+git clone https://github.com/livibetter/pipesX.sh.git
+cd pipesX.sh
+sudo make install
+cd ..
+git clone https://gist.github.com/5933594.git
+mv 5933594 rain.sh
 fi
