@@ -1,4 +1,4 @@
-export ZSH=/home/booker/.oh-my-zsh
+export ZSH=/home/cubez/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
@@ -37,5 +37,5 @@ alias gp="git push $1 $2"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-export NVM_DIR="/home/booker/.nvm"
+export NVM_DIR="/home/cubez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
