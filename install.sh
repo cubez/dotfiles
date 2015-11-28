@@ -90,10 +90,6 @@ if ask "Install symlink for .i3?" Y; then
   ln -sfn ${dir}/.i3 ${HOME}/.i3
 fi
 
-if ask "Install symlink for .i3blocks.conf?" Y; then
-  ln -sf ${dir}/.i3blocks.conf ${HOME}/.i3blocks.conf
-fi
-
 if ask "Install symlink for .gtkrc-2.0?" Y; then
   ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 fi
