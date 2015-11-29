@@ -56,8 +56,9 @@ sudo apt-get install -y rofi
 sudo apt-get install -y compton
 sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
+echo "Setting up Fish as default shell"
 sudo apt-get install -y fish
-sudo chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish
 
 if ask "Install theme, icons and fonts?" Y; then
 echo "################################################################"
@@ -73,7 +74,6 @@ sudo apt-get install -y arc-theme
 
 echo "Moka Icon Theme"
 sudo apt-get install -y moka-icon-theme
-fi
 
 echo "################################################################"
 echo "Configure"
@@ -81,9 +81,7 @@ echo "################################################################"
 git config --global user.name "cubez"
 git config --global user.email "cubez@cubez.nl"
 
-
 if ask "Copy and symlink all config files?" Y; then
-
 echo "################################################################"
 echo "Setup config files"
 echo "################################################################"
@@ -96,7 +94,6 @@ ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
 ln -sfn ${dir}/.fonts ${HOME}/.fonts
 ln -sfn ${dir}/.config/compton.conf ${HOME}/.config/compton.conf
-
 fi
 
 echo "################################################################"
