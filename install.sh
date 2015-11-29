@@ -56,6 +56,11 @@ sudo apt-get install -y rofi
 sudo apt-get install -y compton
 sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
+if ask "Install Fish Shell as default?" Y; then
+sudo apt-get install -y fish
+chsh -s /usr/local/bin/fish
+fi
+
 if ask "Install theme, icons and fonts?" Y; then
 echo "################################################################"
 echo "Install themes"
@@ -123,7 +128,7 @@ fi
 
 if ask "Install Dropbox?" Y; then
 sudo wget https://linux.dropbox.com/packages/ubuntu/dropbox_2015.10.28_amd64.deb
-$ sudo dpkg -i dropbox_2015.10.28_amd64.deb
+sudo dpkg -i dropbox_2015.10.28_amd64.deb
 fi
 
 echo "################################################################"
