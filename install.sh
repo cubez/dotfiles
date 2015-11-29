@@ -84,11 +84,11 @@ git config --global user.name "cubez"
 git config --global user.email "cubez@cubez.nl"
 
 echo "################################################################"
-echo "Setup symlinks for config files"
+echo "Setup config files"
 echo "################################################################"
 
 if ask "Install symlink for .config/fish?" Y; then
-  ln -sf ${dir}/.config/fish ${HOME}/.config/fish
+  ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
 fi
 
 if ask "Install symlink for .i3?" Y; then
@@ -117,18 +117,6 @@ echo "################################################################"
 
 if ask "Install Chromium?" Y; then
   sudo apt-get install -y chromium-browser
-fi
-
-if ask "Install Spotify?" Y; then
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install -y spotify-client
-fi
-
-if ask "Install Dropbox?" Y; then
-sudo wget https://linux.dropbox.com/packages/ubuntu/dropbox_2015.10.28_amd64.deb
-sudo dpkg -i dropbox_2015.10.28_amd64.deb
 fi
 
 echo "################################################################"
