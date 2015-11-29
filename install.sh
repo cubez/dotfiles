@@ -58,7 +58,7 @@ sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
 if ask "Install Fish Shell as default?" Y; then
 sudo apt-get install -y fish
-chsh -s /usr/local/bin/fish
+sudo chsh -s /usr/bin/fish
 fi
 
 if ask "Install theme, icons and fonts?" Y; then
