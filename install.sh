@@ -51,7 +51,6 @@ echo "Install core applications"
 echo "################################################################"
 sudo apt-get install -y i3
 sudo apt-get install -y i3blocks
-sudo apt-get install -y git
 sudo apt-get install -y vim
 sudo apt-get install -y rofi
 sudo apt-get install -y compton
@@ -123,7 +122,7 @@ sudo apt-get install -y spotify-client
 fi
 
 if ask "Install Dropbox?" Y; then
-wget https://linux.dropbox.com/packages/ubuntu/dropbox_2015.10.28_amd64.deb
+sudo wget https://linux.dropbox.com/packages/ubuntu/dropbox_2015.10.28_amd64.deb
 $ sudo dpkg -i dropbox_2015.10.28_amd64.deb
 fi
 
@@ -144,3 +143,9 @@ cd ..
 git clone https://gist.github.com/5933594.git
 mv 5933594 rain.sh
 fi
+
+echo "################################################################"
+echo "Final cleanup"
+echo "################################################################"
+
+sudo apt-get autoremove
