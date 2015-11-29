@@ -63,7 +63,7 @@ echo "Install themes"
 echo "################################################################"
 
 echo "Arc GTK Theme"
-wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
+sudo wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
 sudo apt-key add - < Release.key
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.10/ /' >> /etc/apt/sources.list.d/arc-theme.list"
 sudo apt-get update
