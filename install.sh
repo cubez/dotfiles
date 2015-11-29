@@ -56,10 +56,8 @@ sudo apt-get install -y rofi
 sudo apt-get install -y compton
 sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
-if ask "Install Fish Shell as default?" Y; then
 sudo apt-get install -y fish
 sudo chsh -s /usr/bin/fish
-fi
 
 if ask "Install theme, icons and fonts?" Y; then
 echo "################################################################"
@@ -83,32 +81,22 @@ echo "################################################################"
 git config --global user.name "cubez"
 git config --global user.email "cubez@cubez.nl"
 
+
+if ask "Copy and symlink all config files?" Y; then
+
 echo "################################################################"
 echo "Setup config files"
 echo "################################################################"
 
-if ask "Install symlink for .config/fish?" Y; then
-  ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
-fi
+mkdir -p ${HOME}/.config/fish
+ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
 
-if ask "Install symlink for .i3?" Y; then
-  ln -sfn ${dir}/.i3 ${HOME}/.i3
-fi
+ln -sfn ${dir}/.i3 ${HOME}/.i3
+ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
+ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
+ln -sfn ${dir}/.fonts ${HOME}/.fonts
+ln -sfn ${dir}/.config/compton.conf ${HOME}/.config/compton.conf
 
-if ask "Install symlink for .gtkrc-2.0?" Y; then
-  ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
-fi
-
-if ask "Install symlink for .config/gtk-3.0?" Y; then
-  ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
-fi
-
-if ask "Install symlink for .fonts?" Y; then
-  ln -sfn ${dir}/.fonts ${HOME}/.fonts
-fi
-
-if ask "Install symlink for .config/compton.conf?" Y; then
-  ln -sfn ${dir}/.config/compton.conf ${HOME}/.config/compton.conf
 fi
 
 echo "################################################################"
