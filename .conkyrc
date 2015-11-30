@@ -36,18 +36,18 @@ cpu_avg_samples 2
 TEXT
 [
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
 {"full_text": "${cpu}%", "separator": false, "separator_block_width":10, "color":"${if_match ${cpu} > 66}\#dca3a3${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
 {"full_text": "${mem} /${memmax}", "separator": false, "separator_block_width":10, "color":"${else}${if_match ${memperc} > 80}\#dca3a3${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
 {"full_text": "${battery_percent BAT0}% ${format_time $battery_time BAT0 "\hh\mm"}", "separator": false, "separator_block_width":10, "color":"${if_match ${battery_percent BAT0} < 10}\#dca3a3${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
 {"full_text": "${time %d %b}", "separator": false, "separator_block_width":10},
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
 {"full_text": "${time %H:%M}"}
 
 ],
