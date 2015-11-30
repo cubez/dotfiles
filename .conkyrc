@@ -45,9 +45,9 @@ TEXT
 {"full_text": "", "separator": false, "separator_block_width":4},
 {"full_text": "${battery_percent BAT0}% ${format_time $battery_time BAT0 "\hh\mm"}", "separator": false, "separator_block_width":10, "color":"${if_match ${battery_percent BAT0} > 66}\#7f9f7f${else}${if_match ${battery_percent BAT0} < 33}\#dca3a3${else}\#c3bf9f${endif}${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4},
+{"full_text": "", "separator": false, "separator_block_width":4},
 {"full_text": "${time %d %b}", "separator": false, "separator_block_width":10},
-{"full_text": "", "separator": false, "separator_block_width":4},
+{"full_text": "", "separator": false, "separator_block_width":4},
 {"full_text": "${time %H:%M}"}
 
 ],
