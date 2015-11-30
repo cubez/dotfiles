@@ -30,24 +30,25 @@ override_utf8_locale no
 # number of cpu samples to average
 # set to 1 to disable averaging
 cpu_avg_samples 2
-# template {"full_text": "", "color":"\#"},
 
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 [
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
-{"full_text": "${cpu}%", "separator": false, "separator_block_width":10, "color":"${if_match ${cpu} > 66}\#dca3a3${else}\#ffffff${endif}"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#7cafc2"},
+{"full_text": "${execi 10 sensors | grep "Core 0" | cut -c17-21}", "separator": true, "separator_block_width":20, "color":"${if_match ${cpu} > 66}\#ab4642${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
-{"full_text": "${mem} /${memmax}", "separator": false, "separator_block_width":10, "color":"${else}${if_match ${memperc} > 80}\#dca3a3${else}\#ffffff${endif}"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#7cafc2"},
+{"full_text": "${cpu}%", "separator": true, "separator_block_width":20, "color":"${if_match ${cpu} > 66}\#ab4642${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
-{"full_text": "${battery_percent BAT0}% ${format_time $battery_time BAT0 "\hh\mm"}", "separator": false, "separator_block_width":10, "color":"${if_match ${battery_percent BAT0} < 10}\#dca3a3${else}\#ffffff${endif}"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#7cafc2"},
+{"full_text": "${mem} /${memmax}", "separator": true, "separator_block_width":20, "color":"${if_match ${memperc} > 80}\#ab4642${else}\#ffffff${endif}"},
 
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
-{"full_text": "${time %d %b}", "separator": false, "separator_block_width":10},
-{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#c9ccdb"},
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#7cafc2"},
+{"full_text": "${battery_percent BAT0}%", "separator": true, "separator_block_width":20, "color":"${if_match ${battery_percent BAT0} < 10}\#ab4642${else}\#ffffff${endif}"},
+
+{"full_text": "", "separator": false, "separator_block_width":4, "color":"\#7cafc2"},
+{"full_text": "${time %d %b}", "separator": false, "separator_block_width":8},
 {"full_text": "${time %H:%M}"}
 
 ],
