@@ -161,7 +161,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+q kill
 bindsym Print exec screenshot
-bindsym $mod+space exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+space exec rofi -show run
 
 # startup
 exec_always --no-startup-id feh --bg-scale /home/cubez/dotfiles/.wallpaper.jpg

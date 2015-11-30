@@ -52,8 +52,7 @@ echo "################################################################"
 sudo apt-get install -y i3
 sudo apt-get install -y i3blocks
 sudo apt-get install -y vim
-sudo apt-get install -y rofi
-sudo apt-get install -y compton
+sudo apt-get install -y rofi compton feh
 sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
 echo "Setting up Fish as default shell"
