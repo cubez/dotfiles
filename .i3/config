@@ -1,5 +1,17 @@
-# mod
+# set constants
+set $home "/home/cubez"
 set $mod Mod4
+
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
+set $workspace10 "10 "
 
 # font
 font pango: System San Francisco Display 13
@@ -48,17 +60,6 @@ bindsym $mod+m focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-set $workspace1 "1 "
-set $workspace2 "2 "
-set $workspace3 "3 "
-set $workspace4 "4 "
-set $workspace5 "5 "
-set $workspace6 "6 "
-set $workspace7 "7 "
-set $workspace8 "8 "
-set $workspace9 "9 "
-set $workspace10 "10 "
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -90,7 +91,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3
-bindsym $mod+Shift+e exec /home/cubez/.i3/scripts/exit_menu
+bindsym $mod+Shift+e exec $home/.i3/scripts/exit_menu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -126,7 +127,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-  	status_command i3blocks -c /home/cubez/.i3/i3blocks.conf
+  	status_command $home/.i3/i3conky
 	colors {
 		background $bg-color
 	    separator #757575
@@ -136,7 +137,6 @@ bar {
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
-
 
 # sticky window
 bindsym $mod+Shift+s sticky toggle
@@ -164,7 +164,7 @@ bindsym Print exec screenshot
 bindsym $mod+space exec rofi -show run
 
 # startup
-exec_always --no-startup-id feh --bg-scale /home/cubez/dotfiles/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $home/dotfiles/.wallpaper.jpg
 exec --no-startup-id compton -f
 
 # Keys

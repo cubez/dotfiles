@@ -49,10 +49,7 @@ sudo apt-get -y upgrade
 echo "################################################################"
 echo "Install core applications"
 echo "################################################################"
-sudo apt-get install -y i3
-sudo apt-get install -y i3blocks
-sudo apt-get install -y vim
-sudo apt-get install -y rofi compton feh
+sudo apt-get install -y i3 vim conky rofi compton feh
 sudo apt-get install -y tlp htop fontconfig-infinality --fix-missing
 
 echo "Setting up Fish as default shell"
@@ -90,6 +87,7 @@ mkdir -p ${HOME}/.config/fish
 ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
 
 ln -sfn ${dir}/.i3 ${HOME}/.i3
+ln -sf ${dir}/.conkyrc ${HOME}/.conkyrc
 ln -sfn ${dir}/.Xresources ${HOME}/.Xresources
 ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
