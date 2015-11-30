@@ -74,6 +74,7 @@ sudo apt-get install -y arc-theme
 
 echo "Moka Icon Theme"
 sudo apt-get install -y moka-icon-theme
+fi
 
 echo "################################################################"
 echo "Configure"
