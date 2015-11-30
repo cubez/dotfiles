@@ -90,6 +90,7 @@ mkdir -p ${HOME}/.config/fish
 ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
 
 ln -sfn ${dir}/.i3 ${HOME}/.i3
+ln -sfn ${dir}/.Xresources ${HOME}/.Xresources
 ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
 ln -sfn ${dir}/.fonts ${HOME}/.fonts
@@ -126,4 +127,4 @@ echo "################################################################"
 echo "Final cleanup"
 echo "################################################################"
 
-sudo apt-get autoremove
+sudo apt-get autoremove -y
