@@ -45,9 +45,9 @@ echo "################################################################"
 echo "Install core applications"
 echo "################################################################"
 sudo apt-get install -y i3 vim conky rofi compton feh
-sudo apt-get install -y tlp htop software-properties-common --fix-missing
+sudo apt-get install -y tlp htop --fix-missing
 
-# Symlink dotfiles
+echo "Setting symlinks for i3, conky, xresources and compton"
 ln -sfn ${dir}/.i3 ${HOME}/.i3
 ln -sf ${dir}/.conkyrc ${HOME}/.conkyrc
 ln -sfn ${dir}/.Xresources ${HOME}/.Xresources
@@ -57,7 +57,7 @@ if ask "Set fish as default shell?" Y; then
 sudo apt-get install -y fish
 chsh -s /usr/bin/fish
 
-# Symlink dotfiles
+echo "Setting symlinks for fish"
 mkdir -p ${HOME}/.config/fish
 ln -sf ${dir}/.config/fish/config.fish ${HOME}/.config/fish/config.fish
 fi
@@ -68,9 +68,9 @@ echo "################################################################"
 
 if ask "Install Arc GTK and Moka Icon Theme?" Y; then
 # Arc GTK Theme
-sudo wget http://download.opensuse.org/repositories/home:Horst3180/Debian_8.0/Release.key
+sudo wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
 sudo apt-key add - < Release.key
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/ /' >> /etc/apt/sources.list.d/arc-theme.list"
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.10/ /' >> /etc/apt/sources.list.d/arc-theme.list"
 
 # Moka Icon Theme
 sudo add-apt-repository -y ppa:moka/stable
@@ -78,7 +78,7 @@ sudo add-apt-repository -y ppa:moka/stable
 sudo apt-get update
 sudo apt-get install -y arc-theme moka-icon-theme
 
-# Symlink dotfiles
+echo "Setting symlinks for gtkrc and fonts";
 ln -sf ${dir}/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
 ln -sfn ${dir}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
 ln -sfn ${dir}/.fonts ${HOME}/.fonts
